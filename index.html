@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANARCHY MC - Servidor de Minecraft</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuente moderna -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Iconos FontAwesome para más estilo -->
     <style>
         :root {
             --primary-green: #0d4d2a;
@@ -13,6 +14,7 @@
             --white: #ffffff;
             --shadow-red: rgba(255, 0, 0, 0.5);
             --shadow-gold: rgba(255, 215, 0, 0.8);
+            --dark-bg: rgba(0, 0, 0, 0.3);
         }
         body {
             font-family: 'Roboto', 'Arial', sans-serif;
@@ -25,7 +27,7 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Efecto de nieve cayendo */
+        /* Efecto de nieve cayendo mejorado */
         body::before {
             content: '';
             position: absolute;
@@ -43,6 +45,25 @@
             0% { transform: translateY(-100vh); }
             100% { transform: translateY(100vh); }
         }
+        /* Efecto de partículas caóticas */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, var(--gold) 0.5px, transparent 0.5px);
+            background-size: 50px 50px;
+            animation: chaos 15s linear infinite;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        @keyframes chaos {
+            0% { transform: translateX(-50px) rotate(0deg); }
+            50% { transform: translateX(50px) rotate(180deg); }
+            100% { transform: translateX(-50px) rotate(360deg); }
+        }
         h1 {
             color: var(--gold);
             font-size: 3em;
@@ -51,10 +72,18 @@
             animation: glow 2s ease-in-out infinite alternate;
             position: relative;
             z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        h1::before {
+            content: '⚔️';
+            font-size: 0.8em;
         }
         @keyframes glow {
             from { text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.5); }
-            to { text-shadow: 2px 2px 8px var(--shadow-gold); }
+            to { text-shadow: 2px 2px 8px var(--shadow-gold), 0 0 20px var(--gold); }
         }
         h2 {
             color: var(--primary-red);
@@ -64,6 +93,9 @@
             letter-spacing: 2px;
             position: relative;
             z-index: 2;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 10px;
         }
         .container {
             max-width: 1200px;
@@ -132,6 +164,9 @@
             margin-bottom: 10px;
             position: relative;
             z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .producto p {
             position: relative;
@@ -178,6 +213,35 @@
             transform: scale(1.05);
             box-shadow: 0 6px 20px var(--shadow-gold);
         }
+        .donaciones {
+            background: linear-gradient(45deg, var(--primary-red), var(--gold));
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+        .donaciones h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .donaciones p {
+            margin-bottom: 20px;
+        }
+        .donaciones a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--gold);
+            color: #000;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .donaciones a:hover {
+            background: var(--primary-red);
+            color: var(--white);
+            box-shadow: 0 0 15px var(--shadow-gold);
+        }
         footer {
             margin-top: 40px;
             font-size: 0.9em;
@@ -191,10 +255,14 @@
             }
             h1 {
                 font-size: 2em;
+                flex-direction: column;
             }
             .join-button {
                 font-size: 1.2em;
                 padding: 12px 25px;
+            }
+            .donaciones {
+                padding: 20px;
             }
         }
     </style>
@@ -222,21 +290,21 @@
             <!-- Rangos -->
             <h3>Rangos</h3>
             <div class="producto">
-                <h3>Rango Caos</h3>
+                <h3><i class="fas fa-crown"></i> Rango Caos</h3>
                 <p>El rango supremo: comandos ilimitados, prioridad máxima y acceso a áreas exclusivas.</p>
                 <p><strong>Precio: $10 USD</strong></p>
                 <a href="https://paypal.me/AnarchyCaos/10" target="_blank">Comprar con PayPal</a>
             </div>
             
             <div class="producto">
-                <h3>Rango VIP</h3>
+                <h3><i class="fas fa-star"></i> Rango VIP</h3>
                 <p>Acceso a comandos especiales, teletransportes y protección básica contra grief.</p>
                 <p><strong>Precio: $8 USD</strong></p>
                 <a href="https://paypal.me/AnarchyCaos/8" target="_blank">Comprar con PayPal</a>
             </div>
             
             <div class="producto">
-                <h3>Rango Anarchy</h3>
+                <h3><i class="fas fa-fire"></i> Rango Anarchy</h3>
                 <p>Rango básico para anarquistas: perks de supervivencia y unirse a eventos caóticos.</p>
                 <p><strong>Precio: $5 USD</strong></p>
                 <a href="https://paypal.me/AnarchyCaos/5" target="_blank">Comprar con PayPal</a>
@@ -245,27 +313,35 @@
             <!-- Items Adicionales -->
             <h3>Perks y Servicios</h3>
             <div class="producto">
-                <h3>Fly Temporal por 3 semanas</h3>
+                <h3><i class="fas fa-plane"></i> Fly Temporal por 3 semanas</h3>
                 <p>Habilidad de volar por 1 hora en el servidor (temporal, no permanente).</p>
                 <p><strong>Precio: $3 USD</strong></p>
                 <a href="https://paypal.me/AnarchyCaos/3" target="_blank">Comprar con PayPal</a>
             </div>
             
             <div class="producto">
-                <h3>Infernal Create</h3>
+                <h3><i class="fas fa-tools"></i> Infernal Create</h3>
                 <p>Acceso a un kit de creación infernal (items raros y herramientas para builds épicas).</p>
                 <p><strong>Precio: $1 USD</strong></p>
                 <a href="https://paypal.me/AnarchyCaos/1" target="_blank">Comprar con PayPal</a>
             </div>
             
             <div class="producto">
-                <h3>Desbaneo</h3>
+                <h3><i class="fas fa-ban"></i> Desbaneo</h3>
                 <p>Servicio para quitar un baneo temporal o permanente (sujeto a revisión).</p>
                 <p><strong>Precio: $5 USD</strong></p>
                 <a href="https://paypal.me/AnarchyCaos/5" target="_blank">Comprar con PayPal</a>
             </div>
             
             <p>Para realizar el pago contactar a @ciño o a @kirbby al privado.</p>
+        </div>
+        
+        <!-- Nueva Sección de Donaciones -->
+        <div class="donaciones">
+            <h3><i class="fas fa-heart"></i> Donaciones Voluntarias</h3>
+            <p>¿Te gusta el caos? ¡Ayuda a mantener el servidor vivo con una donación! Cualquier cantidad es bienvenida y nos ayuda a mejorar el servidor.</p>
+            <p>Las donaciones no incluyen perks específicos, pero te damos un shoutout en Discord y agradecimiento eterno.</p>
+            <a href="https://paypal.me/AnarchyCaos" target="_blank">Donar con PayPal</a>
         </div>
         
         <p>Reglas básicas: Nada de hacks, pero todo lo demás vale.</p>
