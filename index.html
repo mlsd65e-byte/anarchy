@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANARCHY MC - Servidor de Minecraft</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuente moderna -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Iconos FontAwesome para más estilo -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary-green: #228b22; /* Verde navideño más brillante */
-            --primary-red: #dc143c; /* Rojo navideño */
+            --primary-green: #228b22;
+            --primary-red: #dc143c;
             --gold: #ffd700;
             --white: #ffffff;
             --shadow-red: rgba(220, 20, 60, 0.5);
             --shadow-gold: rgba(255, 215, 0, 0.8);
-            --dark-bg: rgba(0, 0, 0, 0.3);
         }
         body {
-            font-family: 'Roboto', 'Arial', sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             background: linear-gradient(135deg, var(--primary-green), var(--primary-red));
             color: var(--white);
             text-align: center;
@@ -27,7 +26,6 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Efecto de nieve cayendo más intenso para Navidad - Copos cambiados a dorados y más grandes */
         body::before {
             content: '';
             position: absolute;
@@ -45,7 +43,6 @@
             0% { transform: translateY(-100vh); }
             100% { transform: translateY(100vh); }
         }
-        /* Efecto de partículas navideñas más abundantes (regalos, estrellas, renos) */
         body::after {
             content: '';
             position: absolute;
@@ -64,7 +61,6 @@
             50% { transform: translateX(50px) rotate(180deg); }
             100% { transform: translateX(-50px) rotate(360deg); }
         }
-        /* Luces navideñas parpadeantes */
         .lights {
             position: absolute;
             top: 0;
@@ -92,14 +88,8 @@
             justify-content: center;
             gap: 10px;
         }
-        h1::before {
-            content: '🎄❄️'; /* Árbol y nieve */
-            font-size: 0.8em;
-        }
-        h1::after {
-            content: '🎅🦌'; /* Santa y reno */
-            font-size: 0.8em;
-        }
+        h1::before { content: '🎄❄️'; font-size: 0.8em; }
+        h1::after { content: '🎅🦌'; font-size: 0.8em; }
         @keyframes glow {
             from { text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.5); }
             to { text-shadow: 2px 2px 8px var(--shadow-gold), 0 0 20px var(--gold); }
@@ -127,10 +117,7 @@
             position: relative;
             z-index: 1;
         }
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
+        p { font-size: 1.2em; line-height: 1.6; }
         a {
             color: var(--gold);
             text-decoration: none;
@@ -142,7 +129,7 @@
             transform: scale(1.1);
         }
         .tienda {
-            background: linear-gradient(45deg, var(--primary-green), var(--primary-red)); /* Verde y rojo navideños */
+            background: linear-gradient(45deg, var(--primary-green), var(--primary-red));
             padding: 30px;
             margin-top: 30px;
             border-radius: 15px;
@@ -153,25 +140,9 @@
             color: #000000;
             position: relative;
         }
-        .tienda h2, .tienda h3, .tienda p {
-            color: #000000;
-        }
-        .tienda::before {
-            content: '🎁🔔'; /* Regalo y campana */
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 2em;
-            opacity: 0.7;
-        }
-        .tienda::after {
-            content: '🎄'; /* Árbol adicional */
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 3em;
-            opacity: 0.5;
-        }
+        .tienda h2, .tienda h3, .tienda p { color: #000000; }
+        .tienda::before { content: '🎁🔔'; position: absolute; top: 10px; right: 10px; font-size: 2em; opacity: 0.7; }
+        .tienda::after { content: '🎄'; position: absolute; bottom: 10px; left: 10px; font-size: 3em; opacity: 0.5; }
         .producto {
             padding: 20px;
             border: 2px solid var(--primary-red);
@@ -193,9 +164,7 @@
             background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
             transition: left 0.5s;
         }
-        .producto:hover::before {
-            left: 100%;
-        }
+        .producto:hover::before { left: 100%; }
         .producto:hover {
             transform: translateY(-10px) rotate(1deg);
             box-shadow: 0 10px 25px var(--shadow-gold);
@@ -209,11 +178,7 @@
             align-items: center;
             gap: 10px;
         }
-        .producto p {
-            position: relative;
-            z-index: 1;
-            color: #000000;
-        }
+        .producto p { position: relative; z-index: 1; color: #000000; }
         .producto a {
             display: inline-block;
             margin-top: 10px;
@@ -230,13 +195,6 @@
             background: var(--primary-red);
             color: var(--white);
             box-shadow: 0 0 10px var(--shadow-gold);
-        }
-        iframe {
-            border-radius: 10px;
-            margin-top: 20px;
-            width: 100%;
-            max-width: 560px;
-            height: 315px;
         }
         .join-button {
             display: inline-block;
@@ -263,22 +221,13 @@
             box-shadow: inset 0 0 10px rgba(220, 20, 60, 0.3);
             position: relative;
         }
-        .donaciones::before {
-            content: '🎅'; /* Santa en donaciones */
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 2em;
-            opacity: 0.7;
-        }
+        .donaciones::before { content: '🎅'; position: absolute; top: 10px; right: 10px; font-size: 2em; opacity: 0.7; }
         .donaciones h3 {
             color: var(--white);
             margin-bottom: 20px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        .donaciones p {
-            margin-bottom: 20px;
-        }
+        .donaciones p { margin-bottom: 20px; }
         .donaciones a {
             display: inline-block;
             padding: 15px 30px;
@@ -300,7 +249,6 @@
             position: relative;
             z-index: 2;
         }
-        /* Decoraciones navideñas adicionales */
         .navidad-decoration {
             position: absolute;
             top: 50px;
@@ -309,35 +257,23 @@
             opacity: 0.6;
             z-index: 0;
         }
-        .navidad-decoration::before {
-            content: '❄️🎄🎅🦌🔔';
-        }
+        .navidad-decoration::before { content: '❄️🎄🎅🦌🔔'; }
         @media (max-width: 768px) {
-            .tienda {
-                grid-template-columns: 1fr;
-            }
-            h1 {
-                font-size: 2em;
-                flex-direction: column;
-            }
-            .join-button {
-                font-size: 1.2em;
-                padding: 12px 25px;
-            }
-            .donaciones {
-                padding: 20px;
-            }
+            .tienda { grid-template-columns: 1fr; }
+            h1 { font-size: 2em; flex-direction: column; }
+            .join-button { font-size: 1.2em; padding: 12px 25px; }
+            .donaciones { padding: 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="lights"></div> <!-- Luces navideñas parpadeantes -->
-    <div class="navidad-decoration"></div> <!-- Decoración navideña flotante -->
+    <div class="lights"></div>
+    <div class="navidad-decoration"></div>
     <div class="container">
         <h1>¡Feliz Navidad en ANARCHY MC! ❄️🎄</h1>
         <p>¡Únete al caos navideño en nuestro servidor de Minecraft Anarquía! Sin reglas, pura libertad y regalos caóticos. ¡Ho ho ho! 🎅</p>
         
-        <a href="#" class="join-button">¡Únete Ahora! 🎁</a> <!-- Botón destacado para unirse -->
+        <a href="https://discord.gg/dQBWfmBfKT" target="_blank" rel="noopener noreferrer" class="join-button">¡Únete Ahora! 🎁</a>
         
         <h2>Detalles del Servidor 🎄</h2>
         <p><strong>IP:</strong> na13.holy.gg:26440</p>
@@ -345,63 +281,68 @@
         <p><strong>Contamos con:</strong> Mini PvP, Box PvP, Survival Custom, Create. ¡Con toque festivo! 🦌</p>
         
         <h2>Únete a Nuestro Discord ❄️</h2>
-        <p>Chatea con la comunidad: <a href="https://discord.gg/dQBWfmBfKT" target="_blank">https://discord.gg/dQBWfmBfKT</a> ¡Felices fiestas! 🔔</p>
+        <p>Chatea con la comunidad: <a href="https://discord.gg/dQBWfmBfKT" target="_blank" rel="noopener noreferrer">https://discord.gg/dQBWfmBfKT</a> ¡Felices fiestas! 🔔</p>
         
-        <!-- Sección de Tienda Actualizada -->
         <div class="tienda">
             <h2>Tienda Navideña de ANARCHY MC 🎁</h2>
             <p>Apoya el servidor comprando rangos y perks navideños. ¡Todo se procesa manualmente después del pago! ¡Regalos bajo el árbol! 🎄</p>
             
-            <!-- Rangos -->
             <h3>Rangos Festivos</h3>
             <div class="producto">
                 <h3><i class="fas fa-crown"></i> Rango Caos Navideño 🎅</h3>
                 <p>El rango supremo: comandos ilimitados, prioridad máxima y acceso a áreas exclusivas con toque festivo. ¡Como Santa!</p>
                 <p><strong>Precio: $10 USD</strong></p>
-                <a href="https://paypal.me/AnarchyCaos/10" target="_blank">Comprar con PayPal 🎁</a>
+                <a href="https://paypal.me/AnarchyCaos/10" target="_blank" rel="noopener noreferrer">Comprar con PayPal 🎁</a>
             </div>
             
             <div class="producto">
                 <h3><i class="fas fa-star"></i> Rango VIP Festivo ❄️</h3>
                 <p>Acceso a comandos especiales, teletransportes y protección básica contra grief, con regalos navideños. ¡Estrellas brillantes!</p>
                 <p><strong>Precio: $8 USD</strong></p>
-                <a href="https://paypal.me/AnarchyCaos/8" target="_blank">Comprar con PayPal 🎄</a>
+                <a href="https://paypal.me/AnarchyCaos/8" target="_blank" rel="noopener noreferrer">Comprar con PayPal 🎄</a>
             </div>
             
             <div class="producto">
                 <h3><i class="fas fa-fire"></i> Rango Anarchy Navideño 🦌</h3>
                 <p>Rango básico para anarquistas: perks de supervivencia y unirse a eventos caóticos festivos. ¡Como un reno salvaje!</p>
                 <p><strong>Precio: $5 USD</strong></p>
-                <a href="https://paypal.me/AnarchyCaos/5" target="_blank">Comprar con PayPal 🔔</a>
+                <a href="https://paypal.me/AnarchyCaos/5" target="_blank" rel="noopener noreferrer">Comprar con PayPal 🔔</a>
             </div>
             
-            <!-- Items Adicionales -->
             <h3>Perks y Servicios Festivos</h3>
             <div class="producto">
                 <h3><i class="fas fa-plane"></i> Fly Temporal por 3 semanas ❄️</h3>
                 <p>Habilidad de volar por 1 hora en el servidor (temporal, no permanente). ¡Vuela como un reno en Navidad!</p>
                 <p><strong>Precio: $3 USD</strong></p>
-                <a href="https://paypal.me/AnarchyCaos/3" target="_blank">Comprar con PayPal 🎅</a>
+                <a href="https://paypal.me/AnarchyCaos/3" target="_blank" rel="noopener noreferrer">Comprar con PayPal 🎅</a>
             </div>
             
             <div class="producto">
                 <h3><i class="fas fa-tools"></i> Infernal Create 🎄</h3>
                 <p>Acceso a un kit de creación infernal (items raros y herramientas para builds épicas). ¡Con toque navideño y caos!</p>
                 <p><strong>Precio: $1 USD</strong></p>
-                <a href="https://paypal.me/AnarchyCaos/1" target="_blank">Comprar con PayPal 🎁</a>
+                <a href="https://paypal.me/AnarchyCaos/1" target="_blank" rel="noopener noreferrer">Comprar con PayPal 🎁</a>
             </div>
             
             <div class="producto">
                 <h3><i class="fas fa-ban"></i> Desbaneo Festivo 🦌</h3>
                 <p>Servicio para quitar un baneo temporal o permanente (sujeto a revisión). ¡Perdón navideño y segunda oportunidad!</p>
                 <p><strong>Precio: $5 USD</strong></p>
-                <a href="https://paypal.me/AnarchyCaos/5" target="_blank">Comprar con PayPal ❄️</a>
+                <a href="https://paypal.me/AnarchyCaos/5" target="_blank" rel="noopener noreferrer">Comprar con PayPal ❄️</a>
             </div>
             
             <p>Para realizar el pago contactar a @ciño o a @kirbby al privado. ¡Felices fiestas y caos eterno! 🎄🎅</p>
         </div>
         
-        <!-- Nueva Sección de Donaciones -->
         <div class="donaciones">
             <h3><i class="fas fa-heart"></i> Donaciones Voluntarias Navideñas 🎁</h3>
-            <p>¿Te gusta el caos? ¡Ayuda a mantener el servidor
+            <p>¿Te gusta el caos? ¡Ayuda a mantener el servidor vivo con tus donaciones! Cualquier cantidad es bienvenida y nos ayuda a mejorar el servidor. ¡Gracias por tu apoyo! 🎅</p>
+            <a href="https://paypal.me/AnarchyCaos" target="_blank" rel="noopener noreferrer">Donar Ahora 🔔</a>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 ANARCHY MC. Todos los derechos reservados. ¡Feliz Navidad! ❄️🎄</p>
+        </footer>
+    </div>
+</body>
+</html>
