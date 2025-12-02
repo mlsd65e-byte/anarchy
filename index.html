@@ -5,13 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANARCHY MC - Servidor de Minecraft</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #000000; color: red; text-align: center; padding: 20px; }
-        h1 { color: #F5A002; }
-        .container { max-width: 800px; margin: auto; }
-        a { color: #F5A002; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .tienda { background-color: #444; padding: 20px; margin-top: 20px; border-radius: 10px; }
-        .producto { margin: 10px; padding: 10px; border: 1px solid #ff4500; display: inline-block; width: 250px; vertical-align: top; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0d4d2a, #b22222); /* Verde oscuro a rojo navideño */
+            color: #ffffff; /* Blanco para contraste */
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #ffd700; /* Dorado navideño */
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.5);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #ff0000; /* Rojo navideño */
+            font-size: 2em;
+            margin-top: 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1); /* Blanco translúcido para nieve */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Sombra roja */
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        a {
+            color: #ffd700; /* Dorado */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ff0000; /* Rojo al hover */
+            text-decoration: underline;
+        }
+        .tienda {
+            background: linear-gradient(45deg, #228b22, #dc143c); /* Verde a rojo */
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.3); /* Dorado interno */
+        }
+        .producto {
+            margin: 15px;
+            padding: 20px;
+            border: 2px solid #ff0000; /* Rojo */
+            border-radius: 10px;
+            display: inline-block;
+            width: 280px;
+            vertical-align: top;
+            background: rgba(255, 255, 255, 0.2); /* Blanco translúcido */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .producto:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); /* Dorado al hover */
+        }
+        .producto h3 {
+            color: #ffd700; /* Dorado */
+            margin-bottom: 10px;
+        }
+        iframe {
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .producto {
+                width: 100%;
+                margin: 10px 0;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -20,13 +93,12 @@
         <p>¡Únete al caos total en nuestro servidor de Minecraft Anarquía! Sin reglas, pura libertad.</p>
         
         <h2>Detalles del Servidor</h2>
-        <p><strong>IP:</strong>na13.holy.gg:26440</p>
+        <p><strong>IP:</strong> na13.holy.gg:26440</p>
         <p><strong>Versión:</strong> 1.21+ (Java Edition)</p>
-        <p><strong>contamos:</strong> con mina pvp, box pvp, survival custom,creates  </p>
+        <p><strong>Contamos con:</strong> Mini PvP, Box PvP, Survival Custom, Create.</p>
         
         <h2>Únete a Nuestro Discord</h2>
-        <p>Chatea con la comunidad: <a href="https://discord.gg/gMUdD2kKe4" target="_blank">https://discord.gg/gMUdD2kKe4</a></p>
-        <iframe src="https://discord.com/widget?id=1267343157247606808-ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <p>Chatea con la comunidad: <a href="https://discord.gg/dQBWfmBfKT" target="_blank">https://discord.gg/dQBWfmBfKT</a></p>
         
         <!-- Sección de Tienda Actualizada -->
         <div class="tienda">
@@ -79,23 +151,10 @@
                 <a href="https://www.paypal.com/paypalme/tu-usuario-paypal?amount=5" target="_blank">Comprar con PayPal</a>
             </div>
             
-            <p>para realizar el pago contactar a @ciño  o a @kirbby al privado</p>
+            <p>Para realizar el pago contactar a @ciño o a @kirbby al privado.</p>
         </div>
         
         <p>Reglas básicas: Nada de hacks, pero todo lo demás vale.</p>
     </div>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
